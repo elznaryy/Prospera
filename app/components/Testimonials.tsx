@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { useState } from "react"
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
+import { ChevronLeft, ChevronRight, Quote, Users, Star } from "lucide-react"
 
 const testimonials = [
   {
@@ -51,94 +51,69 @@ export default function Testimonials() {
   const prev = () => setCurrent((current - 1 + testimonials.length) % testimonials.length)
 
   return (
-    <section id="testimonials" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
-      <div className="container mx-auto">
+    <section id="success" className="relative py-24 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+      <div className="absolute inset-0">
+        {/* Subtle gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white"></div>
+        
+        {/* Subtle patterns */}
+        <div 
+          className="absolute inset-0" 
+          style={{
+            backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(0,0,0,0.03) 1px, transparent 0)',
+            backgroundSize: '36px 36px'
+          }}
+        ></div>
+      </div>
+
+      <div className="container mx-auto relative z-10">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl font-bold mb-4 text-foreground">CLIENT RESULTS</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Real outcomes from our lead generation campaigns
+          <div className="inline-block mb-4">
+            <div className="flex items-center justify-center w-16 h-16 mx-auto rounded-full bg-primary/10">
+              <Users className="w-8 h-8 text-primary" />
+            </div>
+          </div>
+          <h2 className="text-4xl font-bold mb-4 text-gray-900 font-space-grotesk tracking-wider">
+            <span className="text-gray-900">CLIENT</span>{" "}
+            <span className="bg-clip-text text-transparent bg-prospera-gradient">SUCCESS</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-sans">
+            See what our clients say about their experience working with Prospera
           </p>
         </motion.div>
 
-        <div className="relative max-w-4xl mx-auto">
-          <motion.div
-            key={current}
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.5 }}
-            className="bg-background rounded-lg shadow-lg overflow-hidden border border-border p-8 md:p-12"
-          >
-            <div className="absolute top-8 right-8 text-primary opacity-20">
-              <Quote size={60} />
-            </div>
-
-            <div className="grid md:grid-cols-5 gap-8">
-              <div className="md:col-span-3">
-                <p className="text-lg md:text-xl text-foreground mb-8 relative z-10">"{testimonials[current].quote}"</p>
-                <div className="flex items-center">
-                  <Image
-                    src={testimonials[current].image || "/placeholder.svg"}
-                    alt={testimonials[current].author}
-                    width={60}
-                    height={60}
-                    className="rounded-full mr-4"
-                  />
-                  <div>
-                    <p className="font-bold text-foreground">{testimonials[current].author}</p>
-                    <p className="text-muted-foreground">{testimonials[current].position}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="md:col-span-2 bg-prospera-gradient rounded-lg p-6 text-white">
-                <h4 className="font-equinox text-lg mb-4 text-center">CAMPAIGN RESULTS</h4>
-                <div className="grid grid-cols-3 gap-4 text-center">
-                  <div>
-                    <p className="text-3xl font-bold font-equinox">{testimonials[current].stats.meetings}</p>
-                    <p className="text-sm">Meetings</p>
-                  </div>
-                  <div>
-                    <p className="text-3xl font-bold font-equinox">{testimonials[current].stats.deals}</p>
-                    <p className="text-sm">Deals</p>
-                  </div>
-                  <div>
-                    <p className="text-3xl font-bold font-equinox">{testimonials[current].stats.roi}</p>
-                    <p className="text-sm">ROI</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          <div className="flex justify-center mt-8 space-x-4">
-            <button
-              onClick={prev}
-              className="p-2 rounded-full bg-background border border-border hover:border-primary transition-colors"
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={testimonial.author}
+              className="bg-white rounded-xl p-8 shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-300"
             >
-              <ChevronLeft className="h-6 w-6" />
-            </button>
-            <div className="flex space-x-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrent(index)}
-                  className={`w-3 h-3 rounded-full ${current === index ? "bg-primary" : "bg-border"}`}
+              <div className="flex items-center mb-6">
+                <Image
+                  src={testimonial.image}
+                  alt={testimonial.author}
+                  width={48}
+                  height={48}
+                  className="rounded-full"
                 />
-              ))}
-            </div>
-            <button
-              onClick={next}
-              className="p-2 rounded-full bg-background border border-border hover:border-primary transition-colors"
-            >
-              <ChevronRight className="h-6 w-6" />
-            </button>
-          </div>
+                <div className="ml-4">
+                  <h3 className="font-bold text-gray-900">{testimonial.author}</h3>
+                  <p className="text-gray-600 text-sm">{testimonial.position}</p>
+                </div>
+              </div>
+              <blockquote className="text-gray-600 font-sans mb-6">{testimonial.quote}</blockquote>
+              <div className="flex items-center text-primary">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-current" />
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

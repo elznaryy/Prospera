@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 mb-12">
           <div className="lg:col-span-1">
-            <div className="font-equinox text-2xl tracking-wider text-white flex items-center mb-4">
+            <div className="font-space-grotesk font-bold text-2xl tracking-wider text-white flex items-center mb-4">
               PROSPERA
               <span className="ml-1">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -20,7 +20,7 @@ export default function Footer() {
                 </svg>
               </span>
             </div>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-muted-foreground mb-6 font-sans">
               Fueling growth, building success through strategic B2B lead generation and cold email campaigns.
             </p>
             <div className="flex space-x-4">
@@ -52,30 +52,30 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-equinox text-lg text-white mb-4">SERVICES</h3>
+            <h3 className="font-space-grotesk font-bold text-lg text-white mb-4 tracking-wider">SERVICES</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href="#" className="text-muted-foreground hover:text-primary transition-colors font-sans">
                   Cold Email Campaigns
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href="#" className="text-muted-foreground hover:text-primary transition-colors font-sans">
                   Lead Generation
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href="#" className="text-muted-foreground hover:text-primary transition-colors font-sans">
                   Account-Based Marketing
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href="#" className="text-muted-foreground hover:text-primary transition-colors font-sans">
                   Sales Automation
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href="#" className="text-muted-foreground hover:text-primary transition-colors font-sans">
                   Meeting Booking
                 </Link>
               </li>
@@ -83,68 +83,42 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-equinox text-lg text-white mb-4">COMPANY</h3>
+            <h3 className="font-space-grotesk font-bold text-lg text-white mb-4 tracking-wider">COMPANY</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href="#" className="text-muted-foreground hover:text-primary transition-colors font-sans">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href="#" className="text-muted-foreground hover:text-primary transition-colors font-sans">
                   Case Studies
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  Privacy Policy
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-equinox text-lg text-white mb-4">CONTACT</h3>
-            <ul className="space-y-3">
-              <li className="flex items-center">
-                <Mail size={16} className="text-primary mr-2" />
-                <Link
-                  href="mailto:info@prospera.com"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  info@prospera.com
-                </Link>
-              </li>
-              <li className="flex items-center">
-                <Phone size={16} className="text-primary mr-2" />
-                <Link href="tel:+1234567890" className="text-muted-foreground hover:text-primary transition-colors">
-                  +1 (234) 567-890
-                </Link>
-              </li>
-              <li className="flex items-start">
-                <MapPin size={16} className="text-primary mr-2 mt-1" />
-                <span className="text-muted-foreground">
-                  123 Business Avenue, Suite 500
-                  <br />
-                  New York, NY 10001
-                </span>
-              </li>
-            </ul>
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-white mb-4 font-space-grotesk">Contact</h3>
+              <p className="flex items-center text-muted-foreground hover:text-white transition-colors">
+                <Mail className="w-4 h-4 mr-2" />
+                <a href="mailto:tarek@prosperaa.net">tarek@prosperaa.net</a>
+              </p>
+              <p className="flex items-center text-muted-foreground hover:text-white transition-colors">
+                <Phone className="w-4 h-4 mr-2" />
+                <a href="tel:+201114701688">+20 111 470 1688</a>
+              </p>
+              <p className="flex items-start text-muted-foreground">
+                <MapPin className="w-4 h-4 mr-2 mt-1" />
+                <span>Alexandria, Egypt</span>
+              </p>
+            </div>
           </div>
         </div>
 
         <div className="border-t border-primary/10 pt-8 text-center">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground font-sans">
             &copy; {new Date().getFullYear()} Prospera. All rights reserved.
           </p>
         </div>

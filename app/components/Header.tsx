@@ -7,6 +7,7 @@ import { motion } from "framer-motion"
 import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import FullScreenMenu from "./FullScreenMenu"
+import Image from "next/image"
 
 export default function Header() {
   const [mounted, setMounted] = useState(false)
@@ -25,6 +26,13 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const navigation = [
+    { name: "Services", href: "#services" },
+    { name: "Process", href: "#process" },
+    { name: "Clients", href: "#success" },
+    { name: "Contact", href: "#contact" }
+  ]
+
   return (
     <>
       <motion.header
@@ -35,61 +43,37 @@ export default function Header() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 sm:p-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
-            <Link href="/" className="-m-1.5 p-1.5">
-              <span className="sr-only">Prospera</span>
-              <div className="font-equinox text-2xl tracking-wider text-foreground flex items-center">
-                PROSPERA
-                <span className="ml-1">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 5L12 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M8 10L8 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M16 10L16 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M12 18L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M8 18L8 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M16 18L16 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  </svg>
-                </span>
-              </div>
+            <Link href="/" className="flex items-center space-x-2">
+              <Image
+                src="/prospera logo.png"
+                alt="Prospera Logo"
+                width={120}
+                height={16}
+                className="h-auto w-[100px] sm:w-[120px] md:w-[150px]"
+                priority
+              />
             </Link>
           </div>
           <div className="hidden md:flex gap-x-8">
-            <Link
-              href="#services"
-              className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors"
-            >
-              Services
-            </Link>
-            <Link
-              href="#tools"
-              className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors"
-            >
-              Tools
-            </Link>
-            <Link
-              href="#process"
-              className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors"
-            >
-              Process
-            </Link>
-            <Link
-              href="#testimonials"
-              className="text-sm font-semibold leading-6 text-foreground hover:text-primary transition-colors"
-            >
-              Results
-            </Link>
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-sm font-medium tracking-wide text-foreground hover:text-primary transition-colors"
+              >
+                {item.name}
+              </Link>
+            ))}
           </div>
-          <div className="flex flex-1 justify-end items-center gap-4">
+          <div className="flex flex-1 justify-end items-center gap-2 sm:gap-4">
             <Button
-              variant="ghost"
-              className="hidden md:flex rounded-full hover:bg-primary/10 hover:text-primary"
               asChild
+              className="prospera-button px-3 py-2 sm:px-6 sm:py-3 text-sm sm:text-base"
+              onClick={() => setIsMenuOpen(false)}
             >
-              <Link href="#contact">Contact Us</Link>
-            </Button>
-            <Button className="hidden md:flex rounded-full bg-primary hover:bg-primary/90" asChild>
-              <Link href="#book">Book a Call</Link>
+              <Link href="#book">Book a Meeting</Link>
             </Button>
             <button
               onClick={() => setIsMenuOpen(true)}

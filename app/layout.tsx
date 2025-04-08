@@ -1,14 +1,15 @@
 import "./globals.css"
-import { Poppins } from "next/font/google"
+import { Space_Grotesk } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import type React from "react"
 import FloatingActionButton from "./components/FloatingActionButton"
 
-const poppins = Poppins({
-  weight: ["300", "400", "500", "600", "700"],
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-space-grotesk",
 })
 
 export const metadata = {
@@ -27,7 +28,7 @@ export default function RootLayout({
       <head>
         <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/equinox" />
       </head>
-      <body className={`${poppins.className} min-h-screen bg-background text-foreground`}>
+      <body className={`${spaceGrotesk.variable} font-sans min-h-screen bg-background text-foreground`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Header />
           <main>{children}</main>
@@ -41,4 +42,3 @@ export default function RootLayout({
 
 
 
-import './globals.css'

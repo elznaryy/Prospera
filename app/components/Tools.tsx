@@ -54,8 +54,8 @@ export default function Tools() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl font-bold mb-4 text-foreground">OUR TOOLKIT</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="text-5xl font-bold mb-4 text-foreground font-space-grotesk tracking-wider">OUR TOOLKIT</h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-sans">
             We leverage industry-leading tools and technologies to maximize your lead generation results
           </p>
         </motion.div>
@@ -79,8 +79,8 @@ export default function Tools() {
                     className="max-h-full object-contain"
                   />
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-foreground font-equinox">{tool.name}</h3>
-                <p className="text-muted-foreground mb-4">{tool.description}</p>
+                <h3 className="text-xl font-bold mb-3 text-foreground font-space-grotesk tracking-wider">{tool.name}</h3>
+                <p className="text-muted-foreground mb-4 font-sans">{tool.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {tool.features.map((feature) => (
                     <span

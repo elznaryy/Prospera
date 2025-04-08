@@ -57,8 +57,8 @@ export default function Process() {
           transition={{ duration: 0.8 }}
           style={{ opacity, scale }}
         >
-          <h2 className="text-5xl font-bold mb-4 text-white">OUR PROCESS</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="text-5xl font-bold mb-4 text-white font-space-grotesk tracking-wider">OUR PROCESS</h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-sans">
             A systematic approach to generating high-quality B2B leads and booked meetings
           </p>
         </motion.div>
@@ -76,10 +76,10 @@ export default function Process() {
                 <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/20 mr-4">
                   {step.icon}
                 </div>
-                <span className="text-4xl font-bold text-white/30 font-equinox">{index + 1}</span>
+                <span className="text-4xl font-bold text-white/30 font-space-grotesk">{index + 1}</span>
               </div>
-              <h3 className="text-xl font-bold mb-3 text-white font-equinox">{step.title}</h3>
-              <p className="text-muted-foreground">{step.description}</p>
+              <h3 className="text-xl font-bold mb-3 text-white font-space-grotesk tracking-wider">{step.title}</h3>
+              <p className="text-muted-foreground font-sans">{step.description}</p>
             </motion.div>
           ))}
         </div>

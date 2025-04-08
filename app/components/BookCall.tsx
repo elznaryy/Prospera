@@ -3,106 +3,87 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { Calendar, Clock, Users, CheckCircle } from "lucide-react"
+import { Calendar, Clock, Users, CheckCircle, Check } from "lucide-react"
+
+const benefits = [
+  "Personalized strategy consultation",
+  "Review of your current lead generation process",
+  "Custom solution recommendations",
+  "ROI and timeline projections",
+  "Live demo of our tools and processes"
+]
+
+// Temporary Calendar Widget Component
+const CalendarWidget = () => (
+  <div className="text-center p-8">
+    <Calendar className="w-12 h-12 text-primary mx-auto mb-4" />
+    <h3 className="text-xl font-bold text-gray-900 mb-4">Schedule Your Call</h3>
+    <Button className="prospera-button w-full">
+      <Link href="https://calendly.com/your-link">Book Your Consultation</Link>
+    </Button>
+  </div>
+)
 
 export default function BookCall() {
   return (
-    <section id="book" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
-      <div className="container mx-auto max-w-6xl">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-            <h2 className="text-4xl font-bold mb-6 text-foreground">BOOK A STRATEGY CALL</h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Schedule a 30-minute call with our lead generation experts to discuss your goals and how we can help you
-              achieve them.
-            </p>
+    <section id="book" className="relative py-24 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+      <div className="absolute inset-0">
+        {/* Subtle gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white"></div>
+        
+        {/* Subtle patterns */}
+        <div 
+          className="absolute inset-0" 
+          style={{
+            backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(0,0,0,0.04) 1px, transparent 0)',
+            backgroundSize: '32px 32px'
+          }}
+        ></div>
+      </div>
 
-            <div className="space-y-4 mb-8">
-              <div className="flex items-start">
-                <CheckCircle className="w-6 h-6 text-primary mr-3 mt-1 flex-shrink-0" />
-                <p className="text-muted-foreground">
-                  Personalized strategy tailored to your industry and target audience
-                </p>
-              </div>
-              <div className="flex items-start">
-                <CheckCircle className="w-6 h-6 text-primary mr-3 mt-1 flex-shrink-0" />
-                <p className="text-muted-foreground">
-                  Insights into the most effective tools and approaches for your goals
-                </p>
-              </div>
-              <div className="flex items-start">
-                <CheckCircle className="w-6 h-6 text-primary mr-3 mt-1 flex-shrink-0" />
-                <p className="text-muted-foreground">Clear pricing and timeline expectations with no hidden costs</p>
-              </div>
-              <div className="flex items-start">
-                <CheckCircle className="w-6 h-6 text-primary mr-3 mt-1 flex-shrink-0" />
-                <p className="text-muted-foreground">No obligation consultation with actionable takeaways</p>
-              </div>
-            </div>
+      <div className="container mx-auto max-w-7xl relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-4xl font-bold text-gray-900 font-space-grotesk tracking-wider mb-6">
+                Ready to Transform Your Lead Generation?
+              </h2>
+              <p className="text-xl text-gray-600 mb-8 font-sans">
+                Schedule a consultation with our team to discuss your goals and discover how we can help you achieve them.
+              </p>
+              <ul className="space-y-4">
+                {benefits.map((benefit, index) => (
+                  <motion.li
+                    key={index}
+                    className="flex items-start"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center mt-1">
+                      <Check className="w-4 h-4 text-primary" />
+                    </div>
+                    <span className="ml-3 text-gray-600 font-sans">{benefit}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
 
-            <Button asChild className="prospera-button">
-              <Link href="https://calendly.com" target="_blank">
-                SCHEDULE NOW
-              </Link>
-            </Button>
-          </motion.div>
-
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <div className="bg-prospera-gradient p-8 rounded-2xl shadow-lg text-white">
-              <h3 className="text-2xl font-bold mb-6 font-equinox">WHAT TO EXPECT</h3>
-
-              <div className="space-y-6">
-                <div className="flex">
-                  <div className="mr-4">
-                    <Calendar className="w-10 h-10 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold mb-1 font-equinox">Discovery Call</h4>
-                    <p className="text-white/80">
-                      We'll discuss your current challenges and goals for lead generation.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex">
-                  <div className="mr-4">
-                    <Clock className="w-10 h-10 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold mb-1 font-equinox">30 Minutes</h4>
-                    <p className="text-white/80">
-                      Focused conversation to respect your time while covering all essentials.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex">
-                  <div className="mr-4">
-                    <Users className="w-10 h-10 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold mb-1 font-equinox">Expert Consultation</h4>
-                    <p className="text-white/80">
-                      Speak directly with our lead generation specialists, not sales representatives.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-8 p-4 bg-white/10 rounded-lg">
-                <p className="text-center text-white/90 italic">
-                  "Our strategy call with Prospera provided more actionable insights than months of working with our
-                  previous agency."
-                </p>
-                <p className="text-center text-white/70 mt-2">— David Miller, CMO at EnterpriseFlow</p>
-              </div>
-            </div>
-          </motion.div>
+          <div className="lg:pl-12">
+            <motion.div
+              className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <CalendarWidget />
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

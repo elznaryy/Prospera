@@ -103,8 +103,8 @@ export default function Timeline() {
               </svg>
             </div>
           </div>
-          <h2 className="text-4xl font-bold text-foreground sm:text-5xl font-equinox tracking-wider">OUR JOURNEY</h2>
-          <p className="mt-4 text-lg text-muted-foreground">The evolution of Prospera's lead generation expertise</p>
+          <h2 className="text-5xl font-bold mb-4 text-foreground font-space-grotesk tracking-wider">OUR JOURNEY</h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-sans">The evolution of Prospera's lead generation expertise</p>
         </motion.div>
 
         <div className="relative">
@@ -178,7 +178,7 @@ function TimelineEvent({
 
           <div className="relative z-10">
             <div className="flex justify-between items-center mb-2">
-              <span className="font-bold text-primary font-equinox tracking-wider">{event.year}</span>
+              <span className="font-bold text-primary font-space-grotesk tracking-wider">{event.year}</span>
               <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
                 <svg
                   className="w-4 h-4 text-primary"
@@ -191,8 +191,8 @@ function TimelineEvent({
                 </svg>
               </div>
             </div>
-            <h3 className="text-xl font-semibold mb-2 font-equinox tracking-wider">{event.title}</h3>
-            <p className="text-muted-foreground">{event.description}</p>
+            <h3 className="text-xl font-semibold mb-2 font-space-grotesk tracking-wider">{event.title}</h3>
+            <p className="text-muted-foreground font-sans">{event.description}</p>
             <motion.div
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: isExpanded ? "auto" : 0, opacity: isExpanded ? 1 : 0 }}
@@ -200,7 +200,7 @@ function TimelineEvent({
               className="overflow-hidden"
             >
               <div className="mt-4 pt-4 border-t border-primary/10">
-                <p className="text-muted-foreground">{event.details}</p>
+                <p className="text-muted-foreground font-sans">{event.details}</p>
               </div>
             </motion.div>
           </div>

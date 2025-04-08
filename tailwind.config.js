@@ -57,7 +57,14 @@ module.exports = {
           maroon: "#4f1c1e",
           navy: "#12354f",
           black: "#010d12",
-          white: "#f6f6f6",
+          white: "#ffffff",
+          gray: {
+            50: "#f9fafb",
+            100: "#f3f4f6",
+            200: "#e5e7eb",
+            800: "#1f2937",
+            900: "#111827"
+          }
         },
       },
       borderRadius: {
@@ -66,8 +73,9 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
-        equinox: ["Equinox", "sans-serif"],
+        sans: ["var(--font-space-grotesk)", ...fontFamily.sans],
+        'space-grotesk': ["var(--font-space-grotesk)", ...fontFamily.sans],
+        equinox: ["Equinox", "sans-serif !important"],
       },
       keyframes: {
         "accordion-down": {
@@ -86,16 +94,24 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        flow: "flow 15s ease infinite",
+        flow: "flow 8s ease infinite",
       },
       backgroundImage: {
-        "prospera-gradient": "linear-gradient(90deg, #12354f 0%, #4f1c1e 100%)",
+        "prospera-gradient": "linear-gradient(135deg, #4f1c1e 0%, #12354f 100%)",
+        "hero-gradient": "linear-gradient(to bottom, #ffffff 0%, #f3f4f6 100%)",
+        "section-gradient": "linear-gradient(to bottom, #f9fafb 0%, #ffffff 100%)",
         "prospera-dark": "linear-gradient(90deg, #010d12 0%, #12354f 100%)",
         "prospera-maroon": "linear-gradient(90deg, #4f1c1e 0%, #010d12 100%)",
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'noise': "url('/noise.png')",
+        'grid-dark': 'linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px)',
       },
       blur: {
         "4xl": "128px",
         "5xl": "160px",
+      },
+      backgroundSize: {
+        'gradient-size': '200% auto',
       },
     },
   },

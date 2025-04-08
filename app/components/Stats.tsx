@@ -5,9 +5,9 @@ import { useInView } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 
 const stats = [
-  { value: 5000, label: "Meetings Booked", suffix: "+" },
-  { value: 85, label: "Response Rate", suffix: "%" },
-  { value: 92, label: "Client Retention", suffix: "%" },
+  { value: 200, label: "Meetings Booked", suffix: "+" },
+  { value: 40, label: "Response Rate", suffix: "%" },
+  { value: 72, label: "Meeting Conversion", suffix: "%" },
   { value: 12, label: "Industries Served", suffix: "" },
 ]
 
@@ -46,8 +46,8 @@ export default function Stats() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl font-bold mb-4 text-white">PROVEN RESULTS</h2>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4 text-white font-space-grotesk tracking-wider">PROVEN RESULTS</h2>
+          <p className="text-xl text-white/80 max-w-3xl mx-auto font-sans">
             Our lead generation campaigns deliver measurable outcomes for B2B companies
           </p>
         </motion.div>
@@ -61,11 +61,11 @@ export default function Stats() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
             >
-              <p className="text-5xl font-bold text-white font-equinox mb-2">
+              <p className="text-5xl font-bold text-white font-space-grotesk tracking-wider mb-2">
                 {Math.round(counts[index])}
                 {stat.suffix}
               </p>
-              <p className="text-white/80">{stat.label}</p>
+              <p className="text-white/80 font-sans">{stat.label}</p>
             </motion.div>
           ))}
         </div>

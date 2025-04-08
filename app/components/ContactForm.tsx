@@ -13,12 +13,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Mail, Send } from "lucide-react"
 
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  company: z.string().min(2, { message: "Company name is required." }),
-  phone: z.string().min(10, { message: "Please enter a valid phone number." }),
-  budget: z.string().min(1, { message: "Please select your monthly budget." }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
+  name: z.string().min(2, "Name is required"),
+  email: z.string().email("Invalid email address"),
+  company: z.string().min(2, "Company name is required"),
+  phone: z.string().min(6, "Phone number is required"),
+  message: z.string().min(10, "Message is required"),
 })
 
 export default function ContactForm() {
@@ -34,7 +33,6 @@ export default function ContactForm() {
       email: "",
       company: "",
       phone: "",
-      budget: "",
       message: "",
     },
   })
@@ -71,11 +69,11 @@ export default function ContactForm() {
         >
           <div className="inline-block mb-4">
             <div className="flex items-center justify-center w-16 h-16 mx-auto rounded-full bg-primary/10 backdrop-blur-sm">
-              <Mail className="w-8 h-8 text-primary" />
+              <Mail className="w-8 h-8 text-white" />
             </div>
           </div>
-          <h2 className="text-4xl font-bold mb-4 text-white font-equinox tracking-wider">GET IN TOUCH</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4 text-white font-space-grotesk tracking-wider">GET IN TOUCH</h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-sans">
             Ready to accelerate your lead generation? Let's discuss how we can help you reach your growth targets.
           </p>
         </motion.div>
@@ -109,8 +107,8 @@ export default function ContactForm() {
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4 font-equinox">MESSAGE SENT SUCCESSFULLY</h3>
-              <p className="text-muted-foreground max-w-md mx-auto">
+              <h3 className="text-2xl font-bold text-white mb-4 font-space-grotesk">MESSAGE SENT SUCCESSFULLY</h3>
+              <p className="text-muted-foreground max-w-md mx-auto font-sans">
                 Thank you for reaching out! Our team will contact you shortly to discuss your lead generation needs.
               </p>
             </motion.div>
@@ -177,10 +175,10 @@ export default function ContactForm() {
                     name="phone"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-white">Phone Number</FormLabel>
+                        <FormLabel className="text-white">Phone</FormLabel>
                         <FormControl>
                           <Input
-                            placeholder="+1 (555) 000-0000"
+                            placeholder="+1 (234) 567-8900"
                             {...field}
                             className="bg-background/20 border-primary/20 focus:border-primary/50 transition-colors"
                           />
@@ -193,38 +191,14 @@ export default function ContactForm() {
 
                 <FormField
                   control={form.control}
-                  name="budget"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-white">Monthly Budget</FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <FormControl>
-                          <SelectTrigger className="bg-background/20 border-primary/20 focus:border-primary/50 transition-colors">
-                            <SelectValue placeholder="Select your budget" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="2000-5000">$2,000 - $5,000</SelectItem>
-                          <SelectItem value="5000-10000">$5,000 - $10,000</SelectItem>
-                          <SelectItem value="10000-20000">$10,000 - $20,000</SelectItem>
-                          <SelectItem value="20000+">$20,000+</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
                   name="message"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-white">Message</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Tell us about your lead generation goals..."
-                          className="min-h-[120px] bg-background/20 border-primary/20 focus:border-primary/50 transition-colors"
+                          placeholder="Tell us about your lead generation needs..."
+                          className="bg-background/20 border-primary/20 focus:border-primary/50 transition-colors min-h-[120px]"
                           {...field}
                         />
                       </FormControl>
@@ -239,7 +213,7 @@ export default function ContactForm() {
                   disabled={isSubmitting}
                 >
                   <div className="absolute inset-0 w-3/12 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[20deg] group-hover:animate-shine" />
-                  <span className="relative z-10 flex items-center justify-center font-equinox tracking-wider text-lg">
+                  <span className="relative z-10 flex items-center justify-center font-space-grotesk font-bold tracking-wider text-lg">
                     {isSubmitting ? "SENDING..." : "SUBMIT REQUEST"}
                     <Send className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </span>
