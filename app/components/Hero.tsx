@@ -77,8 +77,14 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="bg-clip-text text-transparent bg-prospera-gradient font-space-grotesk font-bold tracking-wider">
-              Fill Your Pipeline
+            <span className="relative">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-prospera-maroon via-primary to-prospera-navy animate-flow bg-[length:200%_auto] font-space-grotesk font-bold tracking-wider">
+                Fill Your Pipeline
+              </span>
+              {/* Glow effect */}
+              <span className="absolute inset-0 bg-gradient-to-r from-prospera-maroon via-primary to-prospera-navy opacity-30 blur-xl bg-clip-text">
+                Fill Your Pipeline
+              </span>
             </span>
             <br />
             <span className="text-white font-space-grotesk font-bold tracking-wider">
